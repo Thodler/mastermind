@@ -9,6 +9,8 @@ import {Color} from "../../_models/Color";
 export class ColorComponent implements OnInit {
 
   item = new Color();
+  indexColor!: number;
+
   colors = [
     'yellow',
     'pink',
@@ -21,8 +23,11 @@ export class ColorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.item.color = this.colors[Math.floor(Math.random() * this.colors.length)];
+    this.indexColor = this.randomIndex();
+    this.item.color = this.colors[this.indexColor];
   }
 
-
+  randomIndex(): number{
+    return Math.floor(Math.random() * this.colors.length)
+  }
 }
