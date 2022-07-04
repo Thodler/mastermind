@@ -1,11 +1,15 @@
 .container{
   display: flex;
-  justify-content: center;
   gap: 1rem;
+
+  position: absolute;
+  bottom: 1rem;
 }
 
 .row{
-  @extend .container;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   border: 1px solid black;
   border-radius: 1.4rem;
   width: 18rem;
