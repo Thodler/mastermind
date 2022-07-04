@@ -15,7 +15,6 @@ export class ColorComponent implements OnInit {
     'green',
     'red',
     'skyblue',
-    'gold',
     'orange'
   ];
 
