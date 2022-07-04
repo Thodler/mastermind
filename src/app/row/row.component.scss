@@ -1,12 +1,17 @@
-.row{
+.container{
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.row{
+  @extend .container;
   border: 1px solid black;
   border-radius: 1.4rem;
   width: 18rem;
   padding: 1rem 0;
+}
 
-  position: absolute;
-  bottom: 1rem;
+button{
+  padding: 2rem;
 }
