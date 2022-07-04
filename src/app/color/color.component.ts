@@ -27,6 +27,9 @@ export class ColorComponent implements OnInit {
     this.item.color = this.colors[this.indexColor];
   }
 
+  /**
+   * Donne un nombre aléatoire entre 0 et la longueur du tableau "colors"
+   */
   randomIndex(): number{
     return Math.floor(Math.random() * this.colors.length)
   }
