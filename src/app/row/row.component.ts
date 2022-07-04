@@ -24,4 +24,7 @@ export class RowComponent implements OnInit {
     }
   }
 
+  onSubmitCode() {
+    console.log(this.codeResearch);
+  }
 }
