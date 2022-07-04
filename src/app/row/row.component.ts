@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Color} from "../../_models/Color";
 
 @Component({
@@ -8,6 +8,8 @@ import {Color} from "../../_models/Color";
 })
 export class RowComponent implements OnInit {
   codeResearch: Color[] = [];
+  itemColor!: Color;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,8 +21,7 @@ export class RowComponent implements OnInit {
    */
   randomColorRow(): void{
     for (let i = 0; i < 4; i++) {
-      let myColor = new Color();
-      this.codeResearch.push(myColor);
+      this.codeResearch.push(this.itemColor);
     }
   }
 
