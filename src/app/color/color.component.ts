@@ -7,8 +7,8 @@ import {Color} from "../../_models/Color";
   styleUrls: ['./color.component.scss']
 })
 export class ColorComponent implements OnInit {
-
-  randomColor!: number
+  codeResearch: Color[] = [];
+  randomColor!: number;
   colors = [
     'yellow',
     'pink',
@@ -21,7 +21,16 @@ export class ColorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.randomColor = Math.floor(Math.random() * this.colors.length)
+    this.randomColorRow();
+  }
+
+  randomColorRow(){
+    for (let i = 0; i < 4; i++) {
+      this.randomColor = Math.floor(Math.random() * this.colors.length);
+      let myColor = new Color();
+      myColor.color = this.colors[this.randomColor];
+      this.codeResearch.push(myColor);
+    }
   }
 
 }
