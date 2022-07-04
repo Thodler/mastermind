@@ -1,0 +1,10 @@
+$ratio: 3rem;
+
+span{
+  display: block;
+  width: $ratio;
+  height: $ratio;
+  box-shadow: 0 0 .5rem black;
+  border-radius: $ratio;
+  cursor: pointer;
+}
