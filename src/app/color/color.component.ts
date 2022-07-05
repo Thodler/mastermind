@@ -33,4 +33,9 @@ export class ColorComponent implements OnInit {
   randomIndex(): number{
     return Math.floor(Math.random() * this.colors.length)
   }
+
+  changeColor():void {
+    if (this.indexColor >= this.colors.length-1) this.indexColor = 0;
+    this.item.color = this.colors[++this.indexColor];
+  }
 }
