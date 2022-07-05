@@ -35,7 +35,8 @@ export class ColorComponent implements OnInit {
   }
 
   changeColor():void {
-    if (this.indexColor >= this.colors.length-1) this.indexColor = 0;
+    if (this.indexColor >= this.colors.length-1) this.indexColor = -1;
     this.item.color = this.colors[++this.indexColor];
+    console.log(this.indexColor)
   }
 }
