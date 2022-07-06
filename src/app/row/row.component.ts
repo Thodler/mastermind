@@ -12,6 +12,7 @@ export class RowComponent implements OnInit {
   row!: Jeton[];
   code!: string[];
   historique!: CodeRow[];
+  winner!: boolean;
 
   constructor(
     private regles: ColorsService
@@ -19,6 +20,7 @@ export class RowComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.winner = false;
     this.historique = [];
     this.row = [];
     this.code = this.regles.generatedCode();
@@ -27,7 +29,6 @@ export class RowComponent implements OnInit {
       this.row.push(new Jeton(this.regles.changeColor(this.regles.randomIndex())));
     }
 
-    console.log(this.row);
   }
 
   onSubmitCode() {
@@ -42,10 +43,12 @@ export class RowComponent implements OnInit {
     }else{
       test.indice = this.regles.matchCode(this.code, test.listColor);
       this.historique.push(test);
-    }
 
-    console.log(this.historique)
-    //if(this.regles.matchCode(this.code, tmp))
+      if(test.indice.length == 4 && !test.indice.includes("white")){
+        this.winner = true;
+      };
+
+    }
 
   }
 

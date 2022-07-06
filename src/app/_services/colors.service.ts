@@ -57,11 +57,10 @@ export class ColorsService {
   }
 
   matchCode(code: string[], codePlayed: string[]): string[] {
-
     let boardRed:string[] = []
     let boardWhite:string[] = []
-    codePlayed.forEach((elt, i)=>{
 
+    codePlayed.forEach((elt, i)=>{
       if(elt == code[i]){
         boardRed.push("red");
       } else if (code.includes(elt)){
