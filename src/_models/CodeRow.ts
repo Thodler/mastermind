@@ -1,5 +1,4 @@
-import {Jeton} from "./Jeton";
-
 export class CodeRow{
-  listColor: Jeton[] = []
+  listColor!: string[];
+  indice!:string;
 }

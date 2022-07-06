@@ -1,5 +1,6 @@
 <div class="list">
-  <div class="row"  >
+  <div class="row" *ngFor="let row of historique">
+    <app-jeton *ngFor="let jeton of row.listColor" [color]="jeton"></app-jeton>
   </div>
 </div>
 
