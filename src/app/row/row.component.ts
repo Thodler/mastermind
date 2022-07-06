@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Color} from "../../_models/Color";
-import {CodeRow} from "../../_models/CodeRow";
+import {Jeton} from "../../_models/Jeton";
+import {ColorsService} from "../_services/colors.service";
 
 @Component({
   selector: 'app-row',
@@ -8,18 +8,25 @@ import {CodeRow} from "../../_models/CodeRow";
   styleUrls: ['./row.component.scss']
 })
 export class RowComponent implements OnInit {
-  codeResearch!: Color[];
-  tentative!: CodeRow[][];
+  row!: Jeton[];
 
-  constructor() { }
+  constructor(
+    private regles: ColorsService
+  ) { }
 
   ngOnInit(): void {
-    this.tentative = [];
-    this.codeResearch = [];
+    this.row = [];
+    for (let i = 0; i < 4; i++) {
+      this.row.push(new Jeton(this.regles.changeColor(this.regles.randomIndex())));
+    }
   }
 
   onSubmitCode() {
-    console.log(this.tentative)
+    console.log(this.row)
   }
 
+  onChangeColor(item: Jeton) {
+    const index = this.regles.colors.indexOf(item.color);
+    item.color = this.regles.changeColor(index)
+  }
 }

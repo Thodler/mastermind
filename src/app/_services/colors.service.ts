@@ -1,19 +1,12 @@
-import {Injectable, Input} from '@angular/core';
-import {Color} from "../../_models/Color";
-import {CodeRow} from "../../_models/CodeRow";
+import {Injectable} from '@angular/core';
+import {Jeton} from "../../_models/Jeton";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColorsService {
-  codeResearch!: Color[];
-  tentative!: CodeRow[][];
 
-
-  @Input() item!: Color;
-  indexColor!: number;
-
-
+  row!: Jeton[];
   colors = [
     'yellow',
     'pink',
@@ -32,18 +25,18 @@ export class ColorsService {
     return Math.floor(Math.random() * this.colors.length)
   }
 
-  changeColor():void {
-    if (this.indexColor >= this.colors.length-1) this.indexColor = -1;
-    this.item.color = this.colors[++this.indexColor];
-    console.log(this.indexColor)
+  changeColor(index:number):string {
+    const resultat = index >= this.colors.length-1 ? 0 : ++index;
+    return this.colors[resultat];
   }
 
   /**
    * Donne une couleur aléatoire à un item
    */
   randomColorRow(): void{
+    this.row = [];
     for (let i = 0; i < 4; i++) {
-      this.codeResearch.push(new Color());
+      this.row.push(new Jeton(this.colors[this.randomIndex()]));
     }
   }
 

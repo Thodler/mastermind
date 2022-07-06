@@ -1,5 +1,5 @@
-import {Color} from "./Color";
+import {Jeton} from "./Jeton";
 
 export class CodeRow{
-  listColor: Color[] = []
+  listColor: Jeton[] = []
 }

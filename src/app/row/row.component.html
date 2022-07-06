@@ -5,6 +5,7 @@
 
 <div class="container">
   <div class="row">
+    <app-jeton *ngFor="let jetonPlayed of row" [color]="jetonPlayed.color" (click)="onChangeColor(jetonPlayed)"></app-jeton>
   </div>
-  <button type="button" >Validez</button>
+  <button type="button" (click)="onSubmitCode()" >Validez</button>
 </div>

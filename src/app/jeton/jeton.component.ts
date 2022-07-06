@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Color} from "../../_models/Color";
 
 @Component({
   selector: 'app-jeton',
@@ -8,9 +7,10 @@ import {Color} from "../../_models/Color";
 })
 export class JetonComponent implements OnInit {
 
+  @Input() color!: string;
+
   constructor() { }
 
   ngOnInit(): void {
-
   }
 }
