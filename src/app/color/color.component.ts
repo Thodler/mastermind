@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Color} from "../../_models/Color";
 
 @Component({
@@ -8,7 +8,7 @@ import {Color} from "../../_models/Color";
 })
 export class ColorComponent implements OnInit {
 
-  item = new Color();
+  @Input() item!: Color;
   indexColor!: number;
 
   colors = [

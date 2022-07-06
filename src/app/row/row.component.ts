@@ -1,5 +1,6 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Color} from "../../_models/Color";
+import {CodeRow} from "../../_models/CodeRow";
 
 @Component({
   selector: 'app-row',
@@ -7,12 +8,12 @@ import {Color} from "../../_models/Color";
   styleUrls: ['./row.component.scss']
 })
 export class RowComponent implements OnInit {
-  codeResearch: Color[] = [];
-  itemColor!: Color;
+  codeResearch!: CodeRow;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.codeResearch = new CodeRow();
     this.randomColorRow();
   }
 
@@ -21,7 +22,7 @@ export class RowComponent implements OnInit {
    */
   randomColorRow(): void{
     for (let i = 0; i < 4; i++) {
-      this.codeResearch.push(this.itemColor);
+      this.codeResearch.listColor.push(new Color());
     }
   }
 

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <app-color *ngFor="let color of codeResearch" (itemColor)="color"></app-color>
+    <app-color *ngFor="let color of codeResearch.listColor" [item]="color"></app-color>
   </div>
   <button type="button" (click)="onSubmitCode()">Validez</button>
 </div>
