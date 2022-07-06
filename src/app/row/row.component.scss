@@ -6,6 +6,14 @@
   bottom: 1rem;
 }
 
+.list{
+  position: absolute;
+  bottom: 8rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+}
+
 .row{
   display: flex;
   justify-content: center;

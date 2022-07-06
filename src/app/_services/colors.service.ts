@@ -1,15 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Injectable, Input} from '@angular/core';
 import {Color} from "../../_models/Color";
+import {CodeRow} from "../../_models/CodeRow";
 
-@Component({
-  selector: 'app-color',
-  templateUrl: './color.component.html',
-  styleUrls: ['./color.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class ColorComponent implements OnInit {
+export class ColorsService {
+  codeResearch!: Color[];
+  tentative!: CodeRow[][];
+
 
   @Input() item!: Color;
   indexColor!: number;
+
 
   colors = [
     'yellow',
@@ -21,11 +24,6 @@ export class ColorComponent implements OnInit {
   ];
 
   constructor() { }
-
-  ngOnInit(): void {
-    this.indexColor = this.randomIndex();
-    this.item.color = this.colors[this.indexColor];
-  }
 
   /**
    * Donne un nombre aléatoire entre 0 et la longueur du tableau "colors"
@@ -39,4 +37,15 @@ export class ColorComponent implements OnInit {
     this.item.color = this.colors[++this.indexColor];
     console.log(this.indexColor)
   }
+
+  /**
+   * Donne une couleur aléatoire à un item
+   */
+  randomColorRow(): void{
+    for (let i = 0; i < 4; i++) {
+      this.codeResearch.push(new Color());
+    }
+  }
+
+
 }
