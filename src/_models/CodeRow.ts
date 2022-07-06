@@ -1,4 +1,4 @@
 export class CodeRow{
-  listColor!: string[];
-  indice!:string;
+  listColor: string[] = [];
+  indice:string[] = [];
 }

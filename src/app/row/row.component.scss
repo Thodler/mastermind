@@ -1,29 +1,52 @@
-.container{
+.d-flex{
   display: flex;
   gap: 1rem;
+}
+
+.container{
+  @extend .d-flex;
 
   position: absolute;
   bottom: 1rem;
 }
 
 .list{
-  position: absolute;
-  bottom: 8rem;
   display: flex;
   flex-direction: column-reverse;
   gap: 1rem;
+  position: absolute;
+  bottom: 8rem;
 }
 
+.row-total{
+
+}
+
+.row-history{
+  @extend .d-flex;
+  border: 1px solid black;
+  border-radius: 1.4rem;
+  padding: 1rem;
+  background-color: black;
+}
+
+
 .row{
-  display: flex;
+  @extend .d-flex;
   justify-content: center;
-  gap: 1rem;
   border: 1px solid black;
   border-radius: 1.4rem;
   width: 18rem;
   padding: 1rem 0;
+  &:nth-child(4){
+    margin-right: 2rem;
+  }
 }
 
 button{
   padding: 2rem;
+}
+
+.indice{
+
 }

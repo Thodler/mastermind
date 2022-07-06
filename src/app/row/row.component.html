@@ -1,6 +1,16 @@
-<div class="list">
-  <div class="row" *ngFor="let row of historique">
-    <app-jeton *ngFor="let jeton of row.listColor" [color]="jeton"></app-jeton>
+
+
+<div class="list" >
+  <div *ngFor="let row of historique">
+    <div class="d-flex">
+      <div class="row" >
+        <app-jeton *ngFor="let jeton of row.listColor" [color]="jeton"></app-jeton>
+      </div>
+
+      <div class="row-history">
+        <app-jeton class="indice" *ngFor="let jeton of row.indice" [color]="jeton">></app-jeton>
+      </div>
+    </div>
   </div>
 </div>
 

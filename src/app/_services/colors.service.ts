@@ -53,35 +53,23 @@ export class ColorsService {
       }
 
     }
-
     return code;
   }
 
-  matchCode(code: string[], codePlayed: string[]): string {
-    let goodPos  = 0;
-    let wrongPos = 0;
+  matchCode(code: string[], codePlayed: string[]): string[] {
 
+    let boardRed:string[] = []
+    let boardWhite:string[] = []
     codePlayed.forEach((elt, i)=>{
-      if(elt === code[i]){
-        goodPos++;
+
+      if(elt == code[i]){
+        boardRed.push("red");
       } else if (code.includes(elt)){
-        wrongPos++;
+        boardWhite.push("white");
       }
     })
 
-    return `Bonne position: ${goodPos}\n
-    Mauvaise position: ${wrongPos}`;
+    return boardRed.concat(boardWhite);
   }
-
-  // /**
-  //  * Donne une couleur aléatoire à un item
-  //  */
-  // randomColorRow(): void{
-  //   this.row = [];
-  //   for (let i = 0; i < 4; i++) {
-  //     this.row.push(new Jeton(this.colors[this.randomIndex()]));
-  //   }
-  // }
-
 
 }
