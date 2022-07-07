@@ -45,6 +45,7 @@ export class RowComponent implements OnInit {
     if(this.regles.checkDoublon(test.listColor)){
       alert("Interdit de proposer 2 fois la meme couleur dans un essai")
     }else{
+
       this.life--;
       test.indice = this.regles.matchCode(this.code, test.listColor);
       this.historique.push(test);
