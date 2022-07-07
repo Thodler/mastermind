@@ -16,6 +16,8 @@
   gap: 1rem;
   position: absolute;
   bottom: 8rem;
+  height: calc(100vh - 10rem);
+  overflow-y: scroll;
 }
 
 .row-history{
@@ -51,5 +53,16 @@ button{
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 1rem black;
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+.score{
+  font-weight: bold;
+  position: absolute;
+  right: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  border: 2px solid black;
   border-radius: 1rem;
 }

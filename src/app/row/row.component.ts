@@ -9,17 +9,21 @@ import {CodeRow} from "../../_models/CodeRow";
   styleUrls: ['./row.component.scss']
 })
 export class RowComponent implements OnInit {
-  row!: Jeton[];
+  life!: number;
+  lifeMax!: number;
   code!: string[];
-  historique!: CodeRow[];
   winner!: boolean;
+  message!: string;
+  row!: Jeton[];
+  historique!: CodeRow[];
 
   constructor(
     private regles: ColorsService
   ) { }
 
   ngOnInit(): void {
-
+    this.life=12;
+    this.lifeMax=12;
     this.winner = false;
     this.historique = [];
     this.row = [];
@@ -41,11 +45,16 @@ export class RowComponent implements OnInit {
     if(this.regles.checkDoublon(test.listColor)){
       alert("Interdit de proposer 2 fois la meme couleur dans un essai")
     }else{
+      this.life--;
       test.indice = this.regles.matchCode(this.code, test.listColor);
       this.historique.push(test);
 
-      if(test.indice.length == 4 && !test.indice.includes("white")){
+      if(this.life == 0){
         this.winner = true;
+        this.message = "Vous avez perdu !"
+      } else if(test.indice.length == 4 && !test.indice.includes("white")){
+        this.winner = true;
+        this.message = "Vous avez gagner !"
       };
 
     }
